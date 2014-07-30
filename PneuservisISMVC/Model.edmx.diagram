@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="52102927f9304988ba5927a6cbd32d91" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="10.625" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="11" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="13.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="13.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="11" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BazarTire" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CarFleet" Width="1.5" PointX="0.875" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Contract" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Customer" Width="1.5" PointX="0.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EmployeeAttendance" Width="1.5" PointX="3.375" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Employee" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="3.375" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PriceHistory" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.StoredWheelsDescription" Width="1.5" PointX="3.375" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SuplierTiresOKpneu" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.OrderSuplierTiresOKPneu" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.BazarTires_Customers_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CarFleet_Customers_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ASS_2" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ASS_3" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Order_Customers_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.StoredWheelsDescription_Customers_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EmployeeAttendance_Employees_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Order_Employees_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.StoredWheelsDescription_Employees_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.StoredWheelsDescription_Employees_FKv1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ASS_10" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PriceHistory_SuplierTiresOKpneu_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ASS_9" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

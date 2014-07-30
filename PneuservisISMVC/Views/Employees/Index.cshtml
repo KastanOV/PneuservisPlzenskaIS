@@ -1,0 +1,71 @@
+﻿@model IEnumerable<PneuservisISMVC.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary", @style = "color:white" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Login
+        </th>
+        <th>
+            Jméno
+        </th>
+        <th>
+            Prijmení
+        </th>
+        <th>
+            Telefón
+        </th>
+        <th>
+            Adresa
+        </th>
+        <th>
+            Město
+        </th>
+        <th>
+            Zkušenosti
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.login)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Experience)
+        </td>
+        <td>
+            @Html.ActionLink("Upravit", "Edit", new { id = item.id }, new { @class = "btn btn-primary", @style = "color:white" })
+            @Html.ActionLink("Detaily", "Details", new { id = item.id }, new { @class = "btn btn-primary", @style = "color:white" })
+            @*@Html.ActionLink("Smazat", "Delete", new { id = item.id }, new { @class = "btn btn-primary", @style = "color:white" })*@
+            @Html.ActionLink("Výplata", "Wages", "EmployeeAttendances", new { id = item.id }, new { @class = "btn btn-primary", @style = "color:white" })
+        </td>
+        
+    </tr>
+}
+
+</table>

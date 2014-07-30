@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PneuservisISMVC.Customer>
+
+@{
+    ViewBag.Title = "Seznam Klientů";
+}
+
+<h2>Seznam klientů</h2>
+
+<p>
+    @Html.ActionLink("Nový klient", "Create","" ,new { @class = "btn btn-primary", @style = "color:white" })
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Email
+            </th>
+            <th>
+                Jméno
+            </th>
+            <th>
+                Příjmení
+            </th>
+            <th>
+                Telefón
+            </th>
+            <th>
+                Adresa
+            </th>
+            <th>
+                Město
+            </th>
+            <th>
+                PSČ
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postalCode)
+        </td>
+        <td>
+            @Html.ActionLink("Upravit", "Edit", new { id = item.id }, new { @class = "btn btn-primary", @style = "color:white" })
+            @Html.ActionLink("Detaily", "Details", new { id = item.id }, new { @class = "btn btn-primary", @style = "color:white" }) 
+        </td>
+    </tr>
+}
+
+</table>

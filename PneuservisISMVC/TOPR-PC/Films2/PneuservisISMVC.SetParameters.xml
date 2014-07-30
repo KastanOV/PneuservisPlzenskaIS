@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/PneuservisISMVC_deploy" />
+  <setParameter name="DefaultConnection-Web.config Connection String" value="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-PneuservisISMVC-20140725085216.mdf;Initial Catalog=aspnet-PneuservisISMVC-20140725085216;Integrated Security=True" />
+  <setParameter name="PneuservisDBEntities-Web.config Connection String" value="metadata=res://*/DataModel.csdl|res://*/DataModel.ssdl|res://*/DataModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\v11.0;attachdbfilename=|DataDirectory|\PneuservisDB.mdf;integrated security=True;connect timeout=30;MultipleActiveResultSets=True;App=EntityFramework&quot;" />
+</parameters>

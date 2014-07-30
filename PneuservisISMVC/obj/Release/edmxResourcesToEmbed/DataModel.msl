@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PneuservisDBModelStoreContainer" CdmEntityContainer="PneuservisDBEntities">
+    <EntitySetMapping Name="BazarTires">
+      <EntityTypeMapping TypeName="PneuservisDBModel.BazarTires">
+        <MappingFragment StoreEntitySet="BazarTires">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Customers_id" ColumnName="Customers_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarFleet">
+      <EntityTypeMapping TypeName="PneuservisDBModel.CarFleet">
+        <MappingFragment StoreEntitySet="CarFleet">
+          <ScalarProperty Name="CarIdentityNumber" ColumnName="CarIdentityNumber" />
+          <ScalarProperty Name="WinterWheelsSize" ColumnName="WinterWheelsSize" />
+          <ScalarProperty Name="SummerWheelSize" ColumnName="SummerWheelSize" />
+          <ScalarProperty Name="CarManufacturer" ColumnName="CarManufacturer" />
+          <ScalarProperty Name="CarType" ColumnName="CarType" />
+          <ScalarProperty Name="PreferedTyreManufacturer" ColumnName="PreferedTyreManufacturer" />
+          <ScalarProperty Name="TreadDepthWinter" ColumnName="TreadDepthWinter" />
+          <ScalarProperty Name="TreadDepthSummer" ColumnName="TreadDepthSummer" />
+          <ScalarProperty Name="Customers_id" ColumnName="Customers_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contract">
+      <EntityTypeMapping TypeName="PneuservisDBModel.Contract">
+        <MappingFragment StoreEntitySet="Contract">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Customers_id" ColumnName="Customers_id" />
+          <ScalarProperty Name="Employees_id" ColumnName="Employees_id" />
+          <ScalarProperty Name="CustomerArrival" ColumnName="CustomerArrival" />
+          <ScalarProperty Name="GarageNumber" ColumnName="GarageNumber" />
+          <ScalarProperty Name="CustomerExit" ColumnName="CustomerExit" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="VAT" ColumnName="VAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="PneuservisDBModel.Customers">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeAttendance">
+      <EntityTypeMapping TypeName="PneuservisDBModel.EmployeeAttendance">
+        <MappingFragment StoreEntitySet="EmployeeAttendance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Arrival" ColumnName="Arrival" />
+          <ScalarProperty Name="Exit" ColumnName="Exit" />
+          <ScalarProperty Name="Wage" ColumnName="Wage" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="Employees_id" ColumnName="Employees_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="PneuservisDBModel.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="PneuservisDBModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Customers_id" ColumnName="Customers_id" />
+          <ScalarProperty Name="Employees_id" ColumnName="Employees_id" />
+          <ScalarProperty Name="DATETIME" ColumnName="DATETIME" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PriceHistory">
+      <EntityTypeMapping TypeName="PneuservisDBModel.PriceHistory">
+        <MappingFragment StoreEntitySet="PriceHistory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="oldPrice" ColumnName="oldPrice" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="SuplierTiresOKpneu_EAN" ColumnName="SuplierTiresOKpneu_EAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoredWheelsDescription">
+      <EntityTypeMapping TypeName="PneuservisDBModel.StoredWheelsDescription">
+        <MappingFragment StoreEntitySet="StoredWheelsDescription">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Tiremanufacturer" ColumnName="Tiremanufacturer" />
+          <ScalarProperty Name="DiscDescription" ColumnName="DiscDescription" />
+          <ScalarProperty Name="TireDecription" ColumnName="TireDecription" />
+          <ScalarProperty Name="StoreDate" ColumnName="StoreDate" />
+          <ScalarProperty Name="UnstoreDate" ColumnName="UnstoreDate" />
+          <ScalarProperty Name="Customers_id" ColumnName="Customers_id" />
+          <ScalarProperty Name="Employees_id_Store" ColumnName="Employees_id_Store" />
+          <ScalarProperty Name="Employees_id_Unstore" ColumnName="Employees_id_Unstore" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuplierTiresOKpneu">
+      <EntityTypeMapping TypeName="PneuservisDBModel.SuplierTiresOKpneu">
+        <MappingFragment StoreEntitySet="SuplierTiresOKpneu">
+          <ScalarProperty Name="EAN" ColumnName="EAN" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="ExternalStore" ColumnName="ExternalStore" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="OnStore" ColumnName="OnStore" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="season" ColumnName="season" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderSuplierTiresOKPneu">
+      <EntityTypeMapping TypeName="PneuservisDBModel.OrderSuplierTiresOKPneu">
+        <MappingFragment StoreEntitySet="OrderSuplierTiresOKPneu">
+          <ScalarProperty Name="SuplierTiresOKpneu_EAN" ColumnName="SuplierTiresOKpneu_EAN" />
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+          <ScalarProperty Name="ProductCount" ColumnName="ProductCount" />
+          <ScalarProperty Name="PricePerPiece" ColumnName="PricePerPiece" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AttendanceArrival" FunctionName="PneuservisDBModel.Store.AttendanceArrival" />
+    <FunctionImportMapping FunctionImportName="AttendanceExit" FunctionName="PneuservisDBModel.Store.AttendanceExit" />
+    <FunctionImportMapping FunctionImportName="ContractArrival" FunctionName="PneuservisDBModel.Store.ContractArrival" />
+    <FunctionImportMapping FunctionImportName="ContractExit" FunctionName="PneuservisDBModel.Store.ContractExit" />
+    <FunctionImportMapping FunctionImportName="EmployeeDetail" FunctionName="PneuservisDBModel.Store.EmployeeDetail" />
+    <FunctionImportMapping FunctionImportName="NewOrder" FunctionName="PneuservisDBModel.Store.NewOrder" />
+    <FunctionImportMapping FunctionImportName="UpdateTires" FunctionName="PneuservisDBModel.Store.UpdateTires" />
+  </EntityContainerMapping>
+</Mapping>

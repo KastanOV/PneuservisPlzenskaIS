@@ -1,0 +1,1328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BazarTires">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Manufacturer" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Size" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Customers_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarFleet">
+          <Key>
+            <PropertyRef Name="CarIdentityNumber" />
+          </Key>
+          <Property Name="CarIdentityNumber" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="WinterWheelsSize" Type="int" Nullable="false" />
+          <Property Name="SummerWheelSize" Type="int" Nullable="false" />
+          <Property Name="CarManufacturer" Type="varchar" MaxLength="20" />
+          <Property Name="CarType" Type="varchar" MaxLength="40" />
+          <Property Name="PreferedTyreManufacturer" Type="varchar" MaxLength="10" />
+          <Property Name="TreadDepthWinter" Type="tinyint" />
+          <Property Name="TreadDepthSummer" Type="tinyint" />
+          <Property Name="Customers_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customers_id" Type="int" Nullable="false" />
+          <Property Name="Employees_id" Type="int" Nullable="false" />
+          <Property Name="CustomerArrival" Type="datetime" Nullable="false" />
+          <Property Name="GarageNumber" Type="smallint" Nullable="false" />
+          <Property Name="CustomerExit" Type="datetime" />
+          <Property Name="Payment" Type="int" />
+          <Property Name="VAT" Type="bit" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="lname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="adress" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="postalCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeAttendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Arrival" Type="datetime" Nullable="false" />
+          <Property Name="Exit" Type="datetime" />
+          <Property Name="Wage" Type="money" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
+          <Property Name="Employees_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Lname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Adress" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Experience" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customers_id" Type="int" Nullable="false" />
+          <Property Name="Employees_id" Type="int" Nullable="false" />
+          <Property Name="DATETIME" Type="datetime" Nullable="false" />
+          <Property Name="status" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'aspnet-PneuservisISMVC-20140725085216.dbo.OrderSuplierTiresOKPneu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="OrderSuplierTiresOKPneu">
+          <Key>
+            <PropertyRef Name="SuplierTiresOKpneu_EAN" />
+            <PropertyRef Name="Order_Id" />
+            <PropertyRef Name="ProductCount" />
+            <PropertyRef Name="PricePerPiece" />
+          </Key>
+          <Property Name="SuplierTiresOKpneu_EAN" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Order_Id" Type="int" Nullable="false" />
+          <Property Name="ProductCount" Type="int" Nullable="false" />
+          <Property Name="PricePerPiece" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PriceHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oldPrice" Type="money" Nullable="false" />
+          <Property Name="DATE" Type="date" Nullable="false" />
+          <Property Name="SuplierTiresOKpneu_EAN" Type="varchar" MaxLength="14" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StoredWheelsDescription">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tiremanufacturer" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DiscDescription" Type="varchar" MaxLength="50" />
+          <Property Name="TireDecription" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StoreDate" Type="datetime" Nullable="false" />
+          <Property Name="UnstoreDate" Type="datetime" />
+          <Property Name="Customers_id" Type="int" Nullable="false" />
+          <Property Name="Employees_id_Store" Type="int" Nullable="false" />
+          <Property Name="Employees_id_Unstore" Type="int" />
+        </EntityType>
+        <EntityType Name="SuplierTiresOKpneu">
+          <Key>
+            <PropertyRef Name="EAN" />
+          </Key>
+          <Property Name="EAN" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Manufacturer" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Size" Type="int" Nullable="false" />
+          <Property Name="ExternalStore" Type="int" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="15" />
+          <Property Name="OnStore" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="season" Type="char" MaxLength="1" />
+          <Property Name="Description" Type="varchar" MaxLength="2000" />
+          <Property Name="Photo" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="BazarTires_Customers_FK">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="BazarTires" Type="Self.BazarTires" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BazarTires">
+              <PropertyRef Name="Customers_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CarFleet_Customers_FK">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="CarFleet" Type="Self.CarFleet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarFleet">
+              <PropertyRef Name="Customers_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeAttendance_Employees_FK">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="EmployeeAttendance" Type="Self.EmployeeAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EmployeeAttendance">
+              <PropertyRef Name="Employees_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_10">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderSuplierTiresOKPneu" Type="Self.OrderSuplierTiresOKPneu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderSuplierTiresOKPneu">
+              <PropertyRef Name="Order_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_2">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Customers_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_3">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Employees_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_9">
+          <End Role="SuplierTiresOKpneu" Type="Self.SuplierTiresOKpneu" Multiplicity="1" />
+          <End Role="OrderSuplierTiresOKPneu" Type="Self.OrderSuplierTiresOKPneu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuplierTiresOKpneu">
+              <PropertyRef Name="EAN" />
+            </Principal>
+            <Dependent Role="OrderSuplierTiresOKPneu">
+              <PropertyRef Name="SuplierTiresOKpneu_EAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Order_Customers_FK">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Customers_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Order_Employees_FK">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Employees_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PriceHistory_SuplierTiresOKpneu_FK">
+          <End Role="SuplierTiresOKpneu" Type="Self.SuplierTiresOKpneu" Multiplicity="1" />
+          <End Role="PriceHistory" Type="Self.PriceHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuplierTiresOKpneu">
+              <PropertyRef Name="EAN" />
+            </Principal>
+            <Dependent Role="PriceHistory">
+              <PropertyRef Name="SuplierTiresOKpneu_EAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StoredWheelsDescription_Customers_FK">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="StoredWheelsDescription" Type="Self.StoredWheelsDescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StoredWheelsDescription">
+              <PropertyRef Name="Customers_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StoredWheelsDescription_Employees_FK">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="StoredWheelsDescription" Type="Self.StoredWheelsDescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StoredWheelsDescription">
+              <PropertyRef Name="Employees_id_Store" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StoredWheelsDescription_Employees_FKv1">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="StoredWheelsDescription" Type="Self.StoredWheelsDescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StoredWheelsDescription">
+              <PropertyRef Name="Employees_id_Unstore" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AttendanceArrival" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AttendanceExit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ContractArrival" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_CustomerID" Type="int" Mode="In" />
+          <Parameter Name="p_EmployeesID" Type="int" Mode="In" />
+          <Parameter Name="p_GarageNumber" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="ContractExit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_GarageNumber" Type="smallint" Mode="In" />
+          <Parameter Name="p_Payment" Type="int" Mode="In" />
+          <Parameter Name="p_VAT" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="EmployeeDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_ID" Type="int" Mode="In" />
+          <Parameter Name="p_wage" Type="money" Mode="InOut" />
+          <Parameter Name="p_Worktime" Type="float" Mode="InOut" />
+        </Function>
+        <Function Name="NewOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_CustomerID" Type="int" Mode="In" />
+          <Parameter Name="p_EmployeesID" Type="int" Mode="In" />
+          <Parameter Name="p_EAN" Type="varchar" Mode="In" />
+          <Parameter Name="p_ProductCount" Type="int" Mode="In" />
+          <Parameter Name="p_price" Type="money" Mode="In" />
+        </Function>
+        <Function Name="PayWages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateTires" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_EAN" Type="varchar" Mode="In" />
+          <Parameter Name="p_NewPrice" Type="money" Mode="In" />
+          <Parameter Name="p_ExternalStore" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BazarTires" EntityType="Self.BazarTires" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarFleet" EntityType="Self.CarFleet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeAttendance" EntityType="Self.EmployeeAttendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PriceHistory" EntityType="Self.PriceHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StoredWheelsDescription" EntityType="Self.StoredWheelsDescription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuplierTiresOKpneu" EntityType="Self.SuplierTiresOKpneu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderSuplierTiresOKPneu" EntityType="Self.OrderSuplierTiresOKPneu" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [OrderSuplierTiresOKPneu].[SuplierTiresOKpneu_EAN] AS [SuplierTiresOKpneu_EAN], 
+    [OrderSuplierTiresOKPneu].[Order_Id] AS [Order_Id], 
+    [OrderSuplierTiresOKPneu].[ProductCount] AS [ProductCount], 
+    [OrderSuplierTiresOKPneu].[PricePerPiece] AS [PricePerPiece]
+    FROM [dbo].[OrderSuplierTiresOKPneu] AS [OrderSuplierTiresOKPneu]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="BazarTires_Customers_FK" Association="Self.BazarTires_Customers_FK">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BazarTires" EntitySet="BazarTires" />
+          </AssociationSet>
+          <AssociationSet Name="CarFleet_Customers_FK" Association="Self.CarFleet_Customers_FK">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CarFleet" EntitySet="CarFleet" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeAttendance_Employees_FK" Association="Self.EmployeeAttendance_Employees_FK">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="EmployeeAttendance" EntitySet="EmployeeAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_10" Association="Self.FK_ASS_10">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderSuplierTiresOKPneu" EntitySet="OrderSuplierTiresOKPneu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_2" Association="Self.FK_ASS_2">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_3" Association="Self.FK_ASS_3">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_9" Association="Self.FK_ASS_9">
+            <End Role="SuplierTiresOKpneu" EntitySet="SuplierTiresOKpneu" />
+            <End Role="OrderSuplierTiresOKPneu" EntitySet="OrderSuplierTiresOKPneu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="Order_Customers_FK" Association="Self.Order_Customers_FK">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="Order_Employees_FK" Association="Self.Order_Employees_FK">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="PriceHistory_SuplierTiresOKpneu_FK" Association="Self.PriceHistory_SuplierTiresOKpneu_FK">
+            <End Role="SuplierTiresOKpneu" EntitySet="SuplierTiresOKpneu" />
+            <End Role="PriceHistory" EntitySet="PriceHistory" />
+          </AssociationSet>
+          <AssociationSet Name="StoredWheelsDescription_Customers_FK" Association="Self.StoredWheelsDescription_Customers_FK">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="StoredWheelsDescription" EntitySet="StoredWheelsDescription" />
+          </AssociationSet>
+          <AssociationSet Name="StoredWheelsDescription_Employees_FK" Association="Self.StoredWheelsDescription_Employees_FK">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="StoredWheelsDescription" EntitySet="StoredWheelsDescription" />
+          </AssociationSet>
+          <AssociationSet Name="StoredWheelsDescription_Employees_FKv1" Association="Self.StoredWheelsDescription_Employees_FKv1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="StoredWheelsDescription" EntitySet="StoredWheelsDescription" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="BazarTire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Manufacturer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Size" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Customers_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.BazarTires_Customers_FK" FromRole="BazarTires" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="CarFleet">
+          <Key>
+            <PropertyRef Name="CarIdentityNumber" />
+          </Key>
+          <Property Name="CarIdentityNumber" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WinterWheelsSize" Type="Int32" Nullable="false" />
+          <Property Name="SummerWheelSize" Type="Int32" Nullable="false" />
+          <Property Name="CarManufacturer" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CarType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PreferedTyreManufacturer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TreadDepthWinter" Type="Byte" />
+          <Property Name="TreadDepthSummer" Type="Byte" />
+          <Property Name="Customers_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.CarFleet_Customers_FK" FromRole="CarFleet" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customers_id" Type="Int32" Nullable="false" />
+          <Property Name="Employees_id" Type="Int32" Nullable="false" />
+          <Property Name="CustomerArrival" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GarageNumber" Type="Int16" Nullable="false" />
+          <Property Name="CustomerExit" Type="DateTime" Precision="3" />
+          <Property Name="Payment" Type="Int32" />
+          <Property Name="VAT" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_ASS_2" FromRole="Contract" ToRole="Customers" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_ASS_3" FromRole="Contract" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postalCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BazarTires" Relationship="Self.BazarTires_Customers_FK" FromRole="Customers" ToRole="BazarTires" />
+          <NavigationProperty Name="CarFleets" Relationship="Self.CarFleet_Customers_FK" FromRole="Customers" ToRole="CarFleet" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK_ASS_2" FromRole="Customers" ToRole="Contract" />
+          <NavigationProperty Name="Orders" Relationship="Self.Order_Customers_FK" FromRole="Customers" ToRole="Order" />
+          <NavigationProperty Name="StoredWheelsDescriptions" Relationship="Self.StoredWheelsDescription_Customers_FK" FromRole="Customers" ToRole="StoredWheelsDescription" />
+        </EntityType>
+        <EntityType Name="EmployeeAttendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Arrival" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Exit" Type="DateTime" Precision="3" />
+          <Property Name="Wage" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+          <Property Name="Employees_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.EmployeeAttendance_Employees_FK" FromRole="EmployeeAttendance" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Experience" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK_ASS_3" FromRole="Employees" ToRole="Contract" />
+          <NavigationProperty Name="EmployeeAttendances" Relationship="Self.EmployeeAttendance_Employees_FK" FromRole="Employees" ToRole="EmployeeAttendance" />
+          <NavigationProperty Name="Orders" Relationship="Self.Order_Employees_FK" FromRole="Employees" ToRole="Order" />
+          <NavigationProperty Name="StoredWheelsDescriptions" Relationship="Self.StoredWheelsDescription_Employees_FK" FromRole="Employees" ToRole="StoredWheelsDescription" />
+          <NavigationProperty Name="StoredWheelsDescriptions1" Relationship="Self.StoredWheelsDescription_Employees_FKv1" FromRole="Employees" ToRole="StoredWheelsDescription" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customers_id" Type="Int32" Nullable="false" />
+          <Property Name="Employees_id" Type="Int32" Nullable="false" />
+          <Property Name="DATETIME" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.Order_Customers_FK" FromRole="Order" ToRole="Customers" />
+          <NavigationProperty Name="Employee" Relationship="Self.Order_Employees_FK" FromRole="Order" ToRole="Employees" />
+          <NavigationProperty Name="OrderSuplierTiresOKPneus" Relationship="Self.FK_ASS_10" FromRole="Order" ToRole="OrderSuplierTiresOKPneu" />
+        </EntityType>
+        <EntityType Name="PriceHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oldPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SuplierTiresOKpneu_EAN" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SuplierTiresOKpneu" Relationship="Self.PriceHistory_SuplierTiresOKpneu_FK" FromRole="PriceHistory" ToRole="SuplierTiresOKpneu" />
+        </EntityType>
+        <EntityType Name="StoredWheelsDescription">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tiremanufacturer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DiscDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TireDecription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StoreDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UnstoreDate" Type="DateTime" Precision="3" />
+          <Property Name="Customers_id" Type="Int32" Nullable="false" />
+          <Property Name="Employees_id_Store" Type="Int32" Nullable="false" />
+          <Property Name="Employees_id_Unstore" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="Self.StoredWheelsDescription_Customers_FK" FromRole="StoredWheelsDescription" ToRole="Customers" />
+          <NavigationProperty Name="Employee" Relationship="Self.StoredWheelsDescription_Employees_FK" FromRole="StoredWheelsDescription" ToRole="Employees" />
+          <NavigationProperty Name="Employee1" Relationship="Self.StoredWheelsDescription_Employees_FKv1" FromRole="StoredWheelsDescription" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="SuplierTiresOKpneu">
+          <Key>
+            <PropertyRef Name="EAN" />
+          </Key>
+          <Property Name="EAN" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Size" Type="Int32" Nullable="false" />
+          <Property Name="ExternalStore" Type="Int32" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="OnStore" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="season" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PriceHistories" Relationship="Self.PriceHistory_SuplierTiresOKpneu_FK" FromRole="SuplierTiresOKpneu" ToRole="PriceHistory" />
+          <NavigationProperty Name="OrderSuplierTiresOKPneus" Relationship="Self.FK_ASS_9" FromRole="SuplierTiresOKpneu" ToRole="OrderSuplierTiresOKPneu" />
+        </EntityType>
+        <EntityType Name="OrderSuplierTiresOKPneu">
+          <Key>
+            <PropertyRef Name="SuplierTiresOKpneu_EAN" />
+            <PropertyRef Name="Order_Id" />
+            <PropertyRef Name="ProductCount" />
+            <PropertyRef Name="PricePerPiece" />
+          </Key>
+          <Property Name="SuplierTiresOKpneu_EAN" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Order_Id" Type="Int32" Nullable="false" />
+          <Property Name="ProductCount" Type="Int32" Nullable="false" />
+          <Property Name="PricePerPiece" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_ASS_10" FromRole="OrderSuplierTiresOKPneu" ToRole="Order" />
+          <NavigationProperty Name="SuplierTiresOKpneu" Relationship="Self.FK_ASS_9" FromRole="OrderSuplierTiresOKPneu" ToRole="SuplierTiresOKpneu" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BazarTires_Customers_FK">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="BazarTires" Type="Self.BazarTire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BazarTires">
+              <PropertyRef Name="Customers_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CarFleet_Customers_FK">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CarFleet" Type="Self.CarFleet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarFleet">
+              <PropertyRef Name="Customers_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_2">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Customers_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_3">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Employees_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Order_Customers_FK">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Customers_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StoredWheelsDescription_Customers_FK">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="StoredWheelsDescription" Type="Self.StoredWheelsDescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StoredWheelsDescription">
+              <PropertyRef Name="Customers_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeAttendance_Employees_FK">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeeAttendance" Type="Self.EmployeeAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EmployeeAttendance">
+              <PropertyRef Name="Employees_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Order_Employees_FK">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Employees_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StoredWheelsDescription_Employees_FK">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="StoredWheelsDescription" Type="Self.StoredWheelsDescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StoredWheelsDescription">
+              <PropertyRef Name="Employees_id_Store" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StoredWheelsDescription_Employees_FKv1">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="StoredWheelsDescription" Type="Self.StoredWheelsDescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StoredWheelsDescription">
+              <PropertyRef Name="Employees_id_Unstore" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_10">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderSuplierTiresOKPneu" Type="Self.OrderSuplierTiresOKPneu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderSuplierTiresOKPneu">
+              <PropertyRef Name="Order_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PriceHistory_SuplierTiresOKpneu_FK">
+          <End Role="SuplierTiresOKpneu" Type="Self.SuplierTiresOKpneu" Multiplicity="1" />
+          <End Role="PriceHistory" Type="Self.PriceHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuplierTiresOKpneu">
+              <PropertyRef Name="EAN" />
+            </Principal>
+            <Dependent Role="PriceHistory">
+              <PropertyRef Name="SuplierTiresOKpneu_EAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_9">
+          <End Role="SuplierTiresOKpneu" Type="Self.SuplierTiresOKpneu" Multiplicity="1" />
+          <End Role="OrderSuplierTiresOKPneu" Type="Self.OrderSuplierTiresOKPneu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuplierTiresOKpneu">
+              <PropertyRef Name="EAN" />
+            </Principal>
+            <Dependent Role="OrderSuplierTiresOKPneu">
+              <PropertyRef Name="SuplierTiresOKpneu_EAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DefaultDataModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="BazarTires" EntityType="Self.BazarTire" />
+          <EntitySet Name="CarFleets" EntityType="Self.CarFleet" />
+          <EntitySet Name="Contracts" EntityType="Self.Contract" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="EmployeeAttendances" EntityType="Self.EmployeeAttendance" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="PriceHistories" EntityType="Self.PriceHistory" />
+          <EntitySet Name="StoredWheelsDescriptions" EntityType="Self.StoredWheelsDescription" />
+          <EntitySet Name="SuplierTiresOKpneus" EntityType="Self.SuplierTiresOKpneu" />
+          <EntitySet Name="OrderSuplierTiresOKPneus" EntityType="Self.OrderSuplierTiresOKPneu" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="BazarTires_Customers_FK" Association="Self.BazarTires_Customers_FK">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BazarTires" EntitySet="BazarTires" />
+          </AssociationSet>
+          <AssociationSet Name="CarFleet_Customers_FK" Association="Self.CarFleet_Customers_FK">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CarFleet" EntitySet="CarFleets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_2" Association="Self.FK_ASS_2">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_3" Association="Self.FK_ASS_3">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="Order_Customers_FK" Association="Self.Order_Customers_FK">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="StoredWheelsDescription_Customers_FK" Association="Self.StoredWheelsDescription_Customers_FK">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="StoredWheelsDescription" EntitySet="StoredWheelsDescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeAttendance_Employees_FK" Association="Self.EmployeeAttendance_Employees_FK">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="EmployeeAttendance" EntitySet="EmployeeAttendances" />
+          </AssociationSet>
+          <AssociationSet Name="Order_Employees_FK" Association="Self.Order_Employees_FK">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="StoredWheelsDescription_Employees_FK" Association="Self.StoredWheelsDescription_Employees_FK">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="StoredWheelsDescription" EntitySet="StoredWheelsDescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="StoredWheelsDescription_Employees_FKv1" Association="Self.StoredWheelsDescription_Employees_FKv1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="StoredWheelsDescription" EntitySet="StoredWheelsDescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_10" Association="Self.FK_ASS_10">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderSuplierTiresOKPneu" EntitySet="OrderSuplierTiresOKPneus" />
+          </AssociationSet>
+          <AssociationSet Name="PriceHistory_SuplierTiresOKpneu_FK" Association="Self.PriceHistory_SuplierTiresOKpneu_FK">
+            <End Role="SuplierTiresOKpneu" EntitySet="SuplierTiresOKpneus" />
+            <End Role="PriceHistory" EntitySet="PriceHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_9" Association="Self.FK_ASS_9">
+            <End Role="SuplierTiresOKpneu" EntitySet="SuplierTiresOKpneus" />
+            <End Role="OrderSuplierTiresOKPneu" EntitySet="OrderSuplierTiresOKPneus" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="AttendanceArrival">
+            <Parameter Name="p_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AttendanceExit">
+            <Parameter Name="p_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ContractArrival">
+            <Parameter Name="p_CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="p_EmployeesID" Mode="In" Type="Int32" />
+            <Parameter Name="p_GarageNumber" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="ContractExit">
+            <Parameter Name="p_GarageNumber" Mode="In" Type="Int16" />
+            <Parameter Name="p_Payment" Mode="In" Type="Int32" />
+            <Parameter Name="p_VAT" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="EmployeeDetail">
+            <Parameter Name="p_ID" Mode="In" Type="Int32" />
+            <Parameter Name="p_wage" Mode="InOut" Type="Decimal" />
+            <Parameter Name="p_Worktime" Mode="InOut" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="NewOrder">
+            <Parameter Name="p_CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="p_EmployeesID" Mode="In" Type="Int32" />
+            <Parameter Name="p_EAN" Mode="In" Type="String" />
+            <Parameter Name="p_ProductCount" Mode="In" Type="Int32" />
+            <Parameter Name="p_price" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PayWages">
+            <Parameter Name="p_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateTires">
+            <Parameter Name="p_EAN" Mode="In" Type="String" />
+            <Parameter Name="p_NewPrice" Mode="In" Type="Decimal" />
+            <Parameter Name="p_ExternalStore" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="DefaultDataModel">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Model.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Model.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Model.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BazarTires">
+            <EntityTypeMapping TypeName="Model.BazarTire">
+              <MappingFragment StoreEntitySet="BazarTires">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Customers_id" ColumnName="Customers_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarFleets">
+            <EntityTypeMapping TypeName="Model.CarFleet">
+              <MappingFragment StoreEntitySet="CarFleet">
+                <ScalarProperty Name="CarIdentityNumber" ColumnName="CarIdentityNumber" />
+                <ScalarProperty Name="WinterWheelsSize" ColumnName="WinterWheelsSize" />
+                <ScalarProperty Name="SummerWheelSize" ColumnName="SummerWheelSize" />
+                <ScalarProperty Name="CarManufacturer" ColumnName="CarManufacturer" />
+                <ScalarProperty Name="CarType" ColumnName="CarType" />
+                <ScalarProperty Name="PreferedTyreManufacturer" ColumnName="PreferedTyreManufacturer" />
+                <ScalarProperty Name="TreadDepthWinter" ColumnName="TreadDepthWinter" />
+                <ScalarProperty Name="TreadDepthSummer" ColumnName="TreadDepthSummer" />
+                <ScalarProperty Name="Customers_id" ColumnName="Customers_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="Model.Contract">
+              <MappingFragment StoreEntitySet="Contract">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Customers_id" ColumnName="Customers_id" />
+                <ScalarProperty Name="Employees_id" ColumnName="Employees_id" />
+                <ScalarProperty Name="CustomerArrival" ColumnName="CustomerArrival" />
+                <ScalarProperty Name="GarageNumber" ColumnName="GarageNumber" />
+                <ScalarProperty Name="CustomerExit" ColumnName="CustomerExit" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Model.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="adress" ColumnName="adress" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeAttendances">
+            <EntityTypeMapping TypeName="Model.EmployeeAttendance">
+              <MappingFragment StoreEntitySet="EmployeeAttendance">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Arrival" ColumnName="Arrival" />
+                <ScalarProperty Name="Exit" ColumnName="Exit" />
+                <ScalarProperty Name="Wage" ColumnName="Wage" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Employees_id" ColumnName="Employees_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="Model.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="Model.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Customers_id" ColumnName="Customers_id" />
+                <ScalarProperty Name="Employees_id" ColumnName="Employees_id" />
+                <ScalarProperty Name="DATETIME" ColumnName="DATETIME" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceHistories">
+            <EntityTypeMapping TypeName="Model.PriceHistory">
+              <MappingFragment StoreEntitySet="PriceHistory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="oldPrice" ColumnName="oldPrice" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="SuplierTiresOKpneu_EAN" ColumnName="SuplierTiresOKpneu_EAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoredWheelsDescriptions">
+            <EntityTypeMapping TypeName="Model.StoredWheelsDescription">
+              <MappingFragment StoreEntitySet="StoredWheelsDescription">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Tiremanufacturer" ColumnName="Tiremanufacturer" />
+                <ScalarProperty Name="DiscDescription" ColumnName="DiscDescription" />
+                <ScalarProperty Name="TireDecription" ColumnName="TireDecription" />
+                <ScalarProperty Name="StoreDate" ColumnName="StoreDate" />
+                <ScalarProperty Name="UnstoreDate" ColumnName="UnstoreDate" />
+                <ScalarProperty Name="Customers_id" ColumnName="Customers_id" />
+                <ScalarProperty Name="Employees_id_Store" ColumnName="Employees_id_Store" />
+                <ScalarProperty Name="Employees_id_Unstore" ColumnName="Employees_id_Unstore" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuplierTiresOKpneus">
+            <EntityTypeMapping TypeName="Model.SuplierTiresOKpneu">
+              <MappingFragment StoreEntitySet="SuplierTiresOKpneu">
+                <ScalarProperty Name="EAN" ColumnName="EAN" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="ExternalStore" ColumnName="ExternalStore" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="OnStore" ColumnName="OnStore" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="season" ColumnName="season" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderSuplierTiresOKPneus">
+            <EntityTypeMapping TypeName="Model.OrderSuplierTiresOKPneu">
+              <MappingFragment StoreEntitySet="OrderSuplierTiresOKPneu">
+                <ScalarProperty Name="SuplierTiresOKpneu_EAN" ColumnName="SuplierTiresOKpneu_EAN" />
+                <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+                <ScalarProperty Name="ProductCount" ColumnName="ProductCount" />
+                <ScalarProperty Name="PricePerPiece" ColumnName="PricePerPiece" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="AttendanceArrival" FunctionName="Model.Store.AttendanceArrival" />
+          <FunctionImportMapping FunctionImportName="AttendanceExit" FunctionName="Model.Store.AttendanceExit" />
+          <FunctionImportMapping FunctionImportName="ContractArrival" FunctionName="Model.Store.ContractArrival" />
+          <FunctionImportMapping FunctionImportName="ContractExit" FunctionName="Model.Store.ContractExit" />
+          <FunctionImportMapping FunctionImportName="EmployeeDetail" FunctionName="Model.Store.EmployeeDetail" />
+          <FunctionImportMapping FunctionImportName="NewOrder" FunctionName="Model.Store.NewOrder" />
+          <FunctionImportMapping FunctionImportName="PayWages" FunctionName="Model.Store.PayWages" />
+          <FunctionImportMapping FunctionImportName="UpdateTires" FunctionName="Model.Store.UpdateTires" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

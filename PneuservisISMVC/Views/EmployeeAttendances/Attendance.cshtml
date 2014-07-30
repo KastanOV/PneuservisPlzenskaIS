@@ -1,0 +1,62 @@
+﻿@model PneuservisISMVC.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Docházka pro zaměstnance</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <h4>@Html.DisplayFor(model => model.Fname) @Html.DisplayFor(model => model.Lname) </h4>
+
+            @if (ViewBag.Arrival)
+            {
+                @Html.ActionLink("Příchod", "Arrival", new { id = ViewBag.Id }, new { @class = "btn btn-primary", @style = "color:white" })
+            }
+            else
+            {
+                @Html.ActionLink("Odchod", "Exit", new { id = ViewBag.Id }, new { @class = "btn btn-primary", @style = "color:white" })
+            }
+        </div>
+    }
+    <table class="table">
+        <tr>
+            <th>
+                Příchod
+            </th>
+            <th>
+                Odchod
+            </th>
+            <th>
+                Plat
+            </th>
+            <th>
+                Proplaceno
+            </th>
+        </tr>
+
+        @foreach (var item in Model.EmployeeAttendances.ToList())
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Arrival)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Exit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Paid)
+                </td>
+
+            </tr>
+        }
+    </table>
+
+</div>

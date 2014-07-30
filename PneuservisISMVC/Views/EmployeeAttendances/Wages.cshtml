@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PneuservisISMVC.EmployeeAttendance>
+
+@{
+    ViewBag.Title = "Výplata ";
+}
+
+<h2>Výplata @ViewBag.Name</h2>
+<h3>Proplatit celkem @ViewBag.SumWages ?</h3>
+@Html.ActionLink("Vyplatit mzdu", "PayWages", new { id = @ViewBag.Id }, new { @class = "btn btn-primary", @style = "color:white" })
+
+<table class="table">
+    <tr>
+        <th>
+            Příchod
+        </th>
+        <th>
+            Odhod
+        </th>
+        <th>
+            Plat
+        </th>
+        <th>
+            Proplaceno
+        </th>
+        <th>
+            Login zaměstnance
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Arrival)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.login)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id })*@ 
+        </td>
+    </tr>
+}
+
+</table>

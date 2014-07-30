@@ -1,0 +1,124 @@
+﻿@model PneuservisISMVC.Customer
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detaily</h2>
+
+<div>
+    <h4>Customers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            Jméno
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fname)
+        </dd>
+
+        <dt>
+            Příjmení
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lname)
+        </dd>
+
+        <dt>
+            Telefón
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            Adresa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adress)
+        </dd>
+
+        <dt>
+            Město
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            PSČ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postalCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Upravit", "Edit", new { id = Model.id }, new { @class = "btn btn-primary", @style = "color:white" }) |
+    @Html.ActionLink("Zpět na seznam", "Index", new { @class = "btn btn-primary", @style = "color:white" })
+</p>
+@if(Model.BazarTires.Count() > 0)
+{
+<h3>Seznam bazarových pneumatik</h3>
+<table class="table">
+    <tr>
+        <th>
+            Výrobce
+        </th>
+        <th>
+            Velikost
+        </th>
+        <th>
+            Typ
+        </th>
+        <th>
+            Popis
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.BazarTires.ToList())
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.email)
+            </td>
+            <td>
+                @Html.ActionLink("Upravit", "Edit", "BazarTires", new { id = item.Id }, new { @class = "btn btn-primary", @style = "color:white" })  
+                @Html.ActionLink("Detaily", "Details", "BazarTires", new { id = item.Id }, new { @class = "btn btn-primary", @style = "color:white" })  
+                @Html.ActionLink("Smazat", "Delete", "BazarTires", new { id = item.Id }, new { @class = "btn btn-primary", @style = "color:white" }) 
+            </td>
+        </tr>
+    }
+</table>
+}

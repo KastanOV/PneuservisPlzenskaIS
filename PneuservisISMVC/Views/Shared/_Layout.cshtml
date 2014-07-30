@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Pneuservis Plzeňská</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @*@Html.ActionLink("Pneuservis", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav nav-pills">
+                        <li>@Html.ActionLink("Úvod", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Zákazníci", "Index", "Customers")</li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Zaměstnanci <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Docházka", "CheckPassword", "EmployeeAttendances")</li>
+                                <li>@Html.ActionLink("Seznam zaměstnanců", "Index", "Employees")</li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Sklady <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Bazar", "Index", "BazarTires")</li>
+                                <li><a href="#">Drafts</a></li>
+                                <li><a href="#">Sent Items</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Trash</a></li>
+                            </ul>
+                        </li>
+                        @*<li class="dropdown pull-right">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Settings</a></li>
+                            </ul>
+                        </li>*@
+                    @Html.Partial("_LoginPartial")
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - PneuservisIS beta 0.01</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>
